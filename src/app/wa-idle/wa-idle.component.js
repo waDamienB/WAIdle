@@ -8,6 +8,8 @@ class WaIdleController {
         this.placesDisponibles = 3;
         this.travailleursDisponibles = 0;
 
+        this.bonusEmployes = 0;
+
         this.travailleurs = 0;
         this.prixTravailleur = 10;
 
@@ -34,11 +36,13 @@ class WaIdleController {
     }
 
     affect(pEmploye) {
-        var employe = this.employes.find((employe) => pEmploye.poste === employe.poste);
-        employe.nombre++;
-        this.tempsPerdu -= employe.prix;
-        employe.prix = this._calculerPrix(employe.nombre, employe.prix);
-        this.travailleursDisponibles--;
+        if (this.tempsPerdu >= pEmploye.prix && this.travailleursDisponibles > 0) {
+            var employe = this.employes.find((employe) => pEmploye.poste === employe.poste);
+            employe.nombre++;
+            this.tempsPerdu -= employe.prix;
+            employe.prix = this._calculerPrix(employe.nombre, employe.prix);
+            this.travailleursDisponibles--;
+        }
     }
 
     peutRecruiter() {
@@ -50,7 +54,7 @@ class WaIdleController {
     }
 
     peutAffecter(employe) {
-        return this.travailleursDisponibles > 0 && this.tempsPerdu >= employe.prix;
+        return (this.travailleursDisponibles > 0 && this.tempsPerdu >= employe.prix) || employe.nombre > 0;
     }
 
     recruit($event) {

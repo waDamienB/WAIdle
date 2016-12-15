@@ -1,3 +1,4 @@
 <img ng-src="./img/{{ $ctrl.employe.image }}" width="64" class="employe-pic">
+<div class="employe-nombre" ng-if="$ctrl.employe.nombre !== 0">{{ $ctrl.employe.nombre }}</div>
 <h3 class="employe-title">{{ $ctrl.employe.poste }}</h3>
-<div class="employe-prix">{{ $ctrl.employe.prix }}</div>
+<div class="employe-prix">Prix: {{ $ctrl.employe.prix }}</div>

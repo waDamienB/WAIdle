@@ -1,0 +1,22 @@
+.btn-recruit {
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #0066af;
+    border: none;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.btn-recruit:hover {
+    background-color: #005ba3
+}
+
+.btn-recruitr:active {
+    background-color: #008fff;
+}

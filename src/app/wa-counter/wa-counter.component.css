@@ -1,0 +1,37 @@
+wa-counter {
+    text-align: center;
+}
+wa-counter .lost-time {
+    font-size: 27px;
+}
+
+wa-counter .lost-time-unit {
+    margin-bottom: 20px;
+}
+
+wa-counter .btn-compteur {
+    display: block;
+    padding: 25px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #0066af;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #666;
+    margin: auto;
+    width: 250px;
+}
+
+wa-counter .btn-compteur:hover {
+    background-color: #005ba3
+}
+
+wa-counter .btn-compteur:active {
+    background-color: #008fff;
+    box-shadow: 0 3px #3e3e3e;
+    transform: translateY(6px);
+}

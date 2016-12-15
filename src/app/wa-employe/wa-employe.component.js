@@ -1,12 +1,13 @@
-class WaEmployeController {
+import './wa-employe.component.css';
+
+class WaEmployeControler {
 
 }
 
 export const WaEmployeComponent = {
     template: require('./wa-employe.component.html'),
-    controller: WaEmployeController,
+    controler: WaEmployeControler,
     bindings: {
-        name: '<',
-        onAffect: '&'
+        employe: '<'
     }
 };

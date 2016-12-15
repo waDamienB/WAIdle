@@ -1,2 +1,17 @@
-<wa-counter on-perte="$ctrl.perdreTemps($event)" temps-perdu="$ctrl.tempsPerdu"></wa-counter>
-<wa-recruit on-recruit="$ctrl.recruit($event)" prix-travailleur="$ctrl.prixTravailleur" ng-if="$ctrl.peutRecruiter()"></wa-recruit>
+<wa-counter
+        on-perte="$ctrl.perdreTemps($event)"
+        temps-perdu="$ctrl.tempsPerdu">
+</wa-counter>
+<wa-recruit
+        on-recruit="$ctrl.recruit($event)"
+        prix-travailleur="$ctrl.prixTravailleur"
+        ng-if="$ctrl.peutRecruiter()">
+
+</wa-recruit>
+<wa-employe
+        ng-repeat="employe in $ctrl.employes track by $index"
+        employe="employe"
+        ng-click="$ctrl.affect(employe)"
+        ng-if="$ctrl.peutAffecter(employe)">
+
+</wa-employe>

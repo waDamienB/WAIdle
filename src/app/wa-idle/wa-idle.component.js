@@ -11,14 +11,34 @@ class WaIdleController {
         this.travailleurs = 0;
         this.prixTravailleur = 10;
 
-        this.developpeurs = 0;
-        this.prixDeveloppeur = 25;
+        this.employes = [
+            {
+                poste: 'Développeur',
+                prix: 25,
+                image: 'dev.png',
+                nombre: 0
+            },
+            {
+                poste: 'Chef de Projet',
+                prix: 2000,
+                image: 'cproj.jpg',
+                nombre: 0
+            },
+            {
+                poste: 'Chef de Produit',
+                prix: 5000000,
+                image: 'cp.png',
+                nombre: 0
+            }
+        ];
+    }
 
-        this.chefProjet = 0;
-        this.prixChefProjet = 2000;
-
-        this.chefProduit = 0;
-        this.prixChefProduit = 5000000;
+    affect(pEmploye) {
+        var employe = this.employes.find((employe) => pEmploye.poste === employe.poste);
+        employe.nombre++;
+        this.tempsPerdu -= employe.prix;
+        employe.prix = this._calculerPrix(employe.nombre, employe.prix);
+        this.travailleursDisponibles--;
     }
 
     peutRecruiter() {
@@ -29,10 +49,15 @@ class WaIdleController {
         this.tempsPerdu += $event;
     }
 
+    peutAffecter(employe) {
+        return this.travailleursDisponibles > 0 && this.tempsPerdu >= employe.prix;
+    }
+
     recruit($event) {
         this.travailleurs += $event;
         this.tempsPerdu -= this.prixTravailleur;
         this.placesDisponibles--;
+        this.travailleursDisponibles++;
         this.prixTravailleur = this._calculerPrix(this.travailleurs, this.prixTravailleur);
 
     }
@@ -47,3 +72,7 @@ export const WaIdleComponent = {
     template: require('./wa-idle.component.html'),
     controller: WaIdleController
 };
+
+
+// WEBPACK FOOTER //
+// ./src/app/wa-idle/wa-idle.component.js

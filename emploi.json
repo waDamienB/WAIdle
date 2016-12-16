@@ -1,0 +1,25 @@
+{
+  "emploi": [
+    {
+      "poste": "Développeur",
+      "prix": 25,
+      "nombre": 0,
+      "image": "dev.png",
+      "bonusClick": 1
+    },
+    {
+      "poste": "Chef de Projet",
+      "prix": 2000,
+      "nombre": 0,
+      "image": "cproj.jpg",
+      "bonusClick": 15
+    },
+    {
+      "poste": "Chef de Produit",
+      "prix": 5000,
+      "nombre": 0,
+      "image": "cp.png",
+      "bonusClick": 150
+    }
+  ]
+}

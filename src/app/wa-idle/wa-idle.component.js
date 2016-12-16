@@ -2,6 +2,11 @@ import './wa-idle.component.css';
 
 class WaIdleController {
 
+    constructor($interval) {
+        'ngInject';
+        this.$interval = $interval;
+    }
+
     $onInit() {
         this.tempsPerdu = 0;
 
@@ -13,48 +18,29 @@ class WaIdleController {
         this.travailleurs = 0;
         this.prixTravailleur = 10;
 
-        this.employes = [
-            {
-                poste: 'Développeur',
-                prix: 25,
-                image: 'dev.png',
-                nombre: 0
-            },
-            {
-                poste: 'Chef de Projet',
-                prix: 2000,
-                image: 'cproj.jpg',
-                nombre: 0
-            },
-            {
-                poste: 'Chef de Produit',
-                prix: 5000000,
-                image: 'cp.png',
-                nombre: 0
-            }
-        ];
-    }
-
-    affect(pEmploye) {
-        if (this.tempsPerdu >= pEmploye.prix && this.travailleursDisponibles > 0) {
-            var employe = this.employes.find((employe) => pEmploye.poste === employe.poste);
-            employe.nombre++;
-            this.tempsPerdu -= employe.prix;
-            employe.prix = this._calculerPrix(employe.nombre, employe.prix);
-            this.travailleursDisponibles--;
-        }
+        this.autoClicker();
     }
 
     peutRecruiter() {
-        return this.placesDisponibles > 0 && this.tempsPerdu >= this.prixTravailleur;
+
+        return (this.placesDisponibles > 0 && this.tempsPerdu >= this.prixTravailleur)
+            || this.travailleurs > 0 || this.bonusEmployes > 0;
     }
 
     perdreTemps($event) {
         this.tempsPerdu += $event;
     }
 
-    peutAffecter(employe) {
-        return (this.travailleursDisponibles > 0 && this.tempsPerdu >= employe.prix) || employe.nombre > 0;
+    affectation($event) {
+        this.tempsPerdu -= $event.prix;
+        this.bonusEmployes += $event.bonusClick;
+        this.travailleursDisponibles--;
+    }
+
+    autoClicker() {
+        this.$interval(() => {
+            this.tempsPerdu += this.bonusEmployes
+        }, 1000);
     }
 
     recruit($event) {

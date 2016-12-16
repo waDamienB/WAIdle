@@ -8,10 +8,9 @@
         ng-if="$ctrl.peutRecruiter()">
 
 </wa-recruit>
-<wa-employe
-        ng-repeat="employe in $ctrl.employes track by $index"
-        employe="employe"
-        ng-click="$ctrl.affect(employe)"
-        ng-if="$ctrl.peutAffecter(employe)">
+<wa-staff
+    temps-perdu="$ctrl.tempsPerdu"
+    travailleurs-disponibles="$ctrl.travailleursDisponibles"
+    on-affectation="$ctrl.affectation($event)">
 
-</wa-employe>
+</wa-staff>

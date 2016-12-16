@@ -1,12 +1,12 @@
 {
-  "name": "hero",
+  "name": "waidle",
   "version": "1.0.0",
-  "description": "You are the hero book player and editor",
+  "description": "Le clicker qui vous fera perdre votre temps !",
   "scripts": {
     "server": "webpack-dev-server -d --history-api-fallback --inline --progress",
     "start": "npm run server",
     "copycast": "copycast",
-    "api": "json-server books.json",
+    "api": "json-server emploi.json",
     "build": "webpack -p",
     "test": "karma start"
   },

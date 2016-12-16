@@ -6,6 +6,9 @@ class WaRecruitController {
         this.onRecruit({ $event: 1 });
     }
 
+    pasDePlacesDisponibles() {
+        return this.placesDisponibles === 0;
+    }
 }
 
 export const WaRecruitComponent = {
@@ -13,6 +16,7 @@ export const WaRecruitComponent = {
     controller: WaRecruitController,
     bindings: {
         prixTravailleur: '<',
+        placesDisponibles: '<',
         onRecruit: '&'
     }
 };

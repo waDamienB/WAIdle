@@ -18,13 +18,19 @@ class WaIdleController {
         this.travailleurs = 0;
         this.prixTravailleur = 10;
 
-        this.autoClicker();
+        this._autoClicker();
+
+        /* Succes */
+
+        this.premiereEmbauche = false;
     }
 
     peutRecruiter() {
-
-        return (this.placesDisponibles > 0 && this.tempsPerdu >= this.prixTravailleur)
-            || this.travailleurs > 0 || this.bonusEmployes > 0;
+        if (this.premiereEmbauche === false) {
+            return this.prixTravailleur <= this.tempsPerdu;
+        } else {
+            return this.premiereEmbauche;
+        }
     }
 
     perdreTemps($event) {
@@ -32,24 +38,35 @@ class WaIdleController {
     }
 
     affectation($event) {
-        this.tempsPerdu -= $event.prix;
-        this.bonusEmployes += $event.bonusClick;
-        this.travailleursDisponibles--;
-    }
-
-    autoClicker() {
-        this.$interval(() => {
-            this.tempsPerdu += this.bonusEmployes
-        }, 1000);
+        if (this.tempsPerdu >= $event.prix) {
+            this.tempsPerdu -= $event.prix;
+            this.bonusEmployes += $event.bonusClick;
+            this.travailleursDisponibles--;
+        }
     }
 
     recruit($event) {
-        this.travailleurs += $event;
-        this.tempsPerdu -= this.prixTravailleur;
-        this.placesDisponibles--;
-        this.travailleursDisponibles++;
-        this.prixTravailleur = this._calculerPrix(this.travailleurs, this.prixTravailleur);
+        if (this.tempsPerdu >= this.prixTravailleur) {
+            if (this.premiereEmbauche === false) {
+                this._successBonus(3, "Première embauche");
+                this.premiereEmbauche = true;
+            }
+            this.travailleurs += $event;
+            this.tempsPerdu -= this.prixTravailleur;
+            this.placesDisponibles--;
+            this.travailleursDisponibles++;
+            this.prixTravailleur = this._calculerPrix(this.travailleurs, this.prixTravailleur);
+        }
+    }
 
+    _successBonus(bonus, message) {
+        this.tempsPerdu += bonus;
+    }
+
+    _autoClicker() {
+        this.$interval(() => {
+            this.tempsPerdu += this.bonusEmployes
+        }, 1000);
     }
 
     _calculerPrix(nombre, prix) {

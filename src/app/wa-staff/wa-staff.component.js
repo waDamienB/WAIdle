@@ -16,10 +16,16 @@ class WaStaffControler {
             || employe.nombre > 0;
     }
 
+    noMoreStaff() {
+        return this.travailleursDisponibles === 0;
+    }
+
     affect(pEmploye) {
-        this.onAffectation({$event: {prix: pEmploye.prix, bonusClick: pEmploye.bonusClick}});
-        pEmploye.nombre++;
-        pEmploye.prix = this._calculerPrix(pEmploye.nombre, pEmploye.prix);
+        if (this.travailleursDisponibles > 0) {
+            this.onAffectation({$event: {prix: pEmploye.prix, bonusClick: pEmploye.bonusClick}});
+            pEmploye.nombre++;
+            pEmploye.prix = this._calculerPrix(pEmploye.nombre, pEmploye.prix);
+        }
     }
 
     _calculerPrix(nombre, prix) {

@@ -1,4 +1,8 @@
-<button class="btn-recruit" type="button" ng-click="$ctrl.recrutement()">
+<button class="btn-recruit"
+        type="button"
+        ng-click="$ctrl.recrutement()"
+        ng-disabled="$ctrl.pasDePlacesDisponibles()">
     <i class="fa fa-briefcase" aria-hidden="true"></i> Recruter
     <br/> Prix: {{ $ctrl.prixTravailleur }}
 </button>
+<p ng-if="$ctrl.placesDisponibles > 0">{{$ctrl.placesDisponibles}} Places disponibles</p>

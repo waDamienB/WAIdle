@@ -1,3 +1,5 @@
+import './wa-staff.component.css';
+
 class WaStaffControler {
     constructor(EmployeService) {
         'ngInject';
@@ -20,19 +22,15 @@ class WaStaffControler {
         return this.travailleursDisponibles === 0;
     }
 
-    affect(pEmploye) {
-        if (this.travailleursDisponibles > 0) {
-            this.onAffectation({$event: {prix: pEmploye.prix, bonusClick: pEmploye.bonusClick}});
-            pEmploye.nombre++;
-            pEmploye.prix = this._calculerPrix(pEmploye.nombre, pEmploye.prix);
-        }
+    affect($event) {
+        this.onAffectation({$event: {prix: $event.prix, bonusClick: $event.bonusClick}});
+        $event.nombre++;
+        $event.prix = this._calculerPrix($event.nombre, $event.prix);
     }
 
     _calculerPrix(nombre, prix) {
         return Math.floor(prix * Math.pow(1.1, nombre));
     }
-
-
 }
 
 export const WaStaffComponent = {

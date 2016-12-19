@@ -7,7 +7,7 @@ class WaRecruitController {
     }
 
     pasDePlacesDisponibles() {
-        return this.placesDisponibles === 0;
+        return this.placesDisponibles === 0 || this.tempsPerdu < this.prixTravailleur;
     }
 }
 
@@ -17,6 +17,7 @@ export const WaRecruitComponent = {
     bindings: {
         prixTravailleur: '<',
         placesDisponibles: '<',
+        tempsPerdu: '<',
         onRecruit: '&'
     }
 };

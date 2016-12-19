@@ -1,22 +1,19 @@
 import './wa-idle.component.css';
+import '../../../node_modules/angular-toastr/dist/angular-toastr.css';
 
 class WaIdleController {
 
-    constructor($interval) {
+    constructor($interval, toastr) {
         'ngInject';
         this.$interval = $interval;
+        this.toastr = toastr;
     }
 
     $onInit() {
-        this.tempsPerdu = 0;
-
-        this.placesDisponibles = 3;
+        this.tempsPerdu = 32;
         this.travailleursDisponibles = 0;
 
         this.bonusEmployes = 0;
-
-        this.travailleurs = 0;
-        this.prixTravailleur = 10;
 
         this._autoClicker();
 
@@ -38,29 +35,29 @@ class WaIdleController {
     }
 
     affectation($event) {
-        if (this.tempsPerdu >= $event.prix) {
             this.tempsPerdu -= $event.prix;
             this.bonusEmployes += $event.bonusClick;
             this.travailleursDisponibles--;
-        }
     }
 
-    recruit($event) {
-        if (this.tempsPerdu >= this.prixTravailleur) {
+    move($event) {
+        console.log($event);
+    }
+
+
+    recrutement($event) {
             if (this.premiereEmbauche === false) {
                 this._successBonus(3, "Première embauche");
                 this.premiereEmbauche = true;
             }
-            this.travailleurs += $event;
-            this.tempsPerdu -= this.prixTravailleur;
-            this.placesDisponibles--;
+            this.tempsPerdu -= $event;
             this.travailleursDisponibles++;
-            this.prixTravailleur = this._calculerPrix(this.travailleurs, this.prixTravailleur);
-        }
     }
 
     _successBonus(bonus, message) {
         this.tempsPerdu += bonus;
+        this.toastr.success("+ " + bonus + " secondes", message);
+
     }
 
     _autoClicker() {

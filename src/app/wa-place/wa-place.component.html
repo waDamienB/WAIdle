@@ -1,0 +1,27 @@
+<div class="place-img">
+    <img ng-src="./img/{{ $ctrl.place.image }}" alt="">
+</div>
+<h3 class="place-nom">{{ $ctrl.place.nom }}</h3>
+<div class="row">
+    <div class="place-places-prises">
+        Places prises
+        <span>{{ $ctrl.place.placesPrises | decimalPosition }}</span>
+    </div>
+    <div class="place-places-disponibles">
+        Places disponibles
+        <span>{{ $ctrl.place.placesDisponibles }}</span>
+    </div>
+</div>
+<div class="row">
+    <button type="button"
+            ng-if="$ctrl.place.prix > 0"
+            ng-click="$ctrl.demenage()">
+        <i class="fa fa-building" aria-hidden="true"></i> Déménager
+        <br>{{ $ctrl.place.prix | decimalPosition }}
+    </button>
+    <button type="button"
+            ng-disabled="$ctrl.peutRecruiter()"
+            ng-click="$ctrl.recrute()">
+        <i class="fa fa-briefcase" aria-hidden="true"></i> Recruter
+        <br/>{{ $ctrl.place.prixEmbauche | decimalPosition }}</button>
+</div>

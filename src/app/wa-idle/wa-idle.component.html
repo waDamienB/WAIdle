@@ -2,13 +2,12 @@
         on-perte="$ctrl.perdreTemps($event)"
         temps-perdu="$ctrl.tempsPerdu">
 </wa-counter>
-<wa-recruit
-        on-recruit="$ctrl.recruit($event)"
-        prix-travailleur="$ctrl.prixTravailleur"
-        places-disponibles="$ctrl.placesDisponibles"
-        ng-if="$ctrl.peutRecruiter()">
+<wa-location
+        on-moving="$ctrl.move($event)"
+        on-recrutement="$ctrl.recrutement($event)"
+        temps-perdu="$ctrl.tempsPerdu">
 
-</wa-recruit>
+</wa-location>
 <wa-staff
     temps-perdu="$ctrl.tempsPerdu"
     travailleurs-disponibles="$ctrl.travailleursDisponibles"

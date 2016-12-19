@@ -1,14 +1,14 @@
-const API_URL = "http://localhost:3000/emploi";
+const API_URL = "http://localhost:3000/places";
 
-export class EmployeService {
+export class PlaceService {
 
     constructor($http, toastr) {
-        'ngInject';
+        "ngInject";
         this.$http = $http;
         this.toastr = toastr;
     }
 
-    getEmployes() {
+    getPlaces() {
         return this.$http({
             method: 'GET',
             url: API_URL

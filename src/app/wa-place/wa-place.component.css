@@ -1,19 +1,17 @@
-wa-employe {
-    display: flex;
-    flex-direction: column;
+wa-place {
+    display: block;
     text-align: center;
-    width: 150px;
+    width: 200px;
     border: 1px solid #ddd;
     margin: 0 5px;
 }
-wa-employe .employe-pic {
-    padding: 10px;
-    box-sizing: border-box;
-    width: 84px;
-    height: 84px;
+
+wa-place img {
+    width: 64px;
+    height: 64px;
 }
 
-wa-employe h3 {
+wa-place h3 {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     margin: 0;
@@ -23,35 +21,36 @@ wa-employe h3 {
     background-color: whitesmoke;
 }
 
-wa-employe .row {
+wa-place .row {
     display: flex;
     flex-direction: row;
     background-color: whitesmoke;
 }
 
-wa-employe .row .employe-prix {
+wa-place .row .place-places-prises {
     border-right: 1px solid #ddd;
-    flex: 2;
+    border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
-wa-employe .row .employe-nombre {
-    flex: 1;
+wa-place .row .place-places-disponibles {
+    border-bottom: 1px solid #ddd;
     text-align: right;
 }
 
-wa-employe .row div {
+wa-place .row div,
+wa-place .row button {
     padding: 0 10px;
     font-size: 11px;
+    flex: 1;
     color: #aaa;
 }
-wa-employe .row span {
-    display: block;
-    font-size: 16px;
-    color: #000;
+
+wa-place .row button:last-of-type {
+    margin-right: 0;
 }
 
-wa-employe button {
+wa-place .row button {
     font-size: 14px;
     padding: 5px;
     cursor: pointer;
@@ -61,20 +60,26 @@ wa-employe button {
     color: #fff;
     background-color: #0066af;
     border: none;
-    flex: 1;
+    margin-right: 5px;
 }
 
-wa-employe button:hover {
-    background-color: #005ba3;
+wa-place .row button:hover {
+    background-color: #005ba3
 }
 
-wa-employe button:active {
+wa-place .row button:active {
     background-color: #008fff;
 }
 
-wa-employe button[disabled],
-wa-employe button[disabled]:hover,
-wa-employe button[disabled]:active {
+wa-place button[disabled], 
+wa-place button[disabled]:hover, 
+wa-place button[disabled]:active {
     color: #fff;
     background-color: #666;
+}
+
+wa-place .row span {
+    display: block;
+    font-size: 16px;
+    color: #000;
 }

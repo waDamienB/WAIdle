@@ -1,4 +1,10 @@
 <img ng-src="./img/{{ $ctrl.employe.image }}" width="64" class="employe-pic">
-<div class="employe-nombre" ng-if="$ctrl.employe.nombre !== 0">{{ $ctrl.employe.nombre }}</div>
+
 <h3 class="employe-title">{{ $ctrl.employe.poste }}</h3>
-<div class="employe-prix">Prix: {{ $ctrl.employe.prix }}</div>
+<div class="row">
+    <div class="employe-prix">Prix <span>{{ $ctrl.employe.prix | decimalPosition }}</span></div>
+    <div class="employe-nombre">Nombre <span>{{ $ctrl.employe.nombre  | decimalPosition }}</span></div>
+</div>
+<button type="button"
+        ng-disabled="$ctrl.affectable()"
+        ng-click="$ctrl.affecter()">Affecter</button>

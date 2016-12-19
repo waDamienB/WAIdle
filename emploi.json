@@ -16,10 +16,49 @@
     },
     {
       "poste": "Chef de Produit",
-      "prix": 5000,
+      "prix": 5000000,
       "nombre": 0,
       "image": "cp.png",
       "bonusClick": 150
+    }
+  ],
+  "places": [
+    {
+      "nom": "Garage",
+      "placesDisponibles": 3,
+      "placesPrises": 0,
+      "prixEmbauche": 10,
+      "prix": 0,
+      "image": "garage.jpg"
+    },
+    {
+      "nom": "Appartement",
+      "placesDisponibles": 7,
+      "placesPrises": 0,
+      "prixEmbauche": 500,
+      "prix": 1000000
+    },
+    {
+      "nom": "Maison",
+      "placesDisponibles": 20,
+      "placesPrises": 0,
+      "prixEmbauche": 2000,
+      "prix": 10000000
+    },
+    {
+      "nom": "Petit bureau",
+      "placesDisponibles": 35,
+      "placesPrises": 0,
+      "prixEmbauche": 5000,
+      "prix": 100000000
+    },
+    {
+      "nom": "Grand bureau",
+      "placesDisponibles": 45,
+      "placesPrises": 0,
+      "prixEmbauche": 1000,
+      "prix": 1000000000
+
     }
   ]
 }

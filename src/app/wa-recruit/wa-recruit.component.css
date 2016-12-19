@@ -13,6 +13,10 @@
     margin: 10px auto;
 }
 
+.btn-recruit[disabled] {
+    background-color: #aaa;
+}
+
 .btn-recruit:hover {
     background-color: #005ba3
 }

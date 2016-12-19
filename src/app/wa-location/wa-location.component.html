@@ -1,0 +1,7 @@
+<wa-place
+        ng-repeat="place in $ctrl.places track by $index"
+        ng-if="$ctrl.peutDemenager(place)"
+        place="place"
+        on-demenagement="$ctrl.demenagement($event)"
+        on-recruit="$ctrl.recrute($event)"
+        temps-perdu="$ctrl.tempsPerdu"></wa-place>

@@ -10,9 +10,8 @@ class WaIdleController {
     }
 
     $onInit() {
-        this.tempsPerdu = 32;
+        this.tempsPerdu = 0;
         this.travailleursDisponibles = 0;
-
         this.bonusEmployes = 0;
 
         this._autoClicker();
@@ -54,6 +53,12 @@ class WaIdleController {
             this.travailleursDisponibles++;
     }
 
+    debauche($event) {
+        this.tempsPerdu -= $event.debauche;
+        this.bonusEmployes -= $event.bonusClick;
+        this.travailleursDisponibles++;
+    }
+
     _successBonus(bonus, message) {
         this.tempsPerdu += bonus;
         this.toastr.success("+ " + bonus + " secondes", message);
@@ -65,11 +70,6 @@ class WaIdleController {
             this.tempsPerdu += this.bonusEmployes
         }, 1000);
     }
-
-    _calculerPrix(nombre, prix) {
-        return Math.floor(prix * Math.pow(1.1, nombre));
-    }
-
 }
 
 export const WaIdleComponent = {

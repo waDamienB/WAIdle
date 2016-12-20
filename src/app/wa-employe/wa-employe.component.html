@@ -2,9 +2,15 @@
 
 <h3 class="employe-title">{{ $ctrl.employe.poste }}</h3>
 <div class="row">
-    <div class="employe-prix">Prix <span>{{ $ctrl.employe.prix | decimalPosition }}</span></div>
-    <div class="employe-nombre">Nombre <span>{{ $ctrl.employe.nombre  | decimalPosition }}</span></div>
+    <div class="employe-debauche">Désaffecter <span>{{ $ctrl.employe.debauche  | decimalPosition }}</span></div>
+    <div class="employe-prix">Affecter <span>{{ $ctrl.employe.prix | decimalPosition }}</span></div>
 </div>
-<button type="button"
-        ng-disabled="$ctrl.affectable()"
-        ng-click="$ctrl.affecter()">Affecter</button>
+<div class="row">
+    <button type="button"
+            ng-disabled="$ctrl.debauchable()"
+            ng-click="$ctrl.debaucher()"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+    <div class="employe-nombre">{{ $ctrl.employe.nombre  | decimalPosition }}</div>
+    <button type="button"
+            ng-disabled="$ctrl.affectable()"
+            ng-click="$ctrl.affecter()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+</div>

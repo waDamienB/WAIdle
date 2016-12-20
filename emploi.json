@@ -3,6 +3,7 @@
     {
       "poste": "Développeur",
       "prix": 25,
+      "debauche": 17,
       "nombre": 0,
       "image": "dev.png",
       "bonusClick": 1
@@ -10,6 +11,7 @@
     {
       "poste": "Chef de Projet",
       "prix": 2000,
+      "debauche": 1400,
       "nombre": 0,
       "image": "cproj.jpg",
       "bonusClick": 15
@@ -17,6 +19,7 @@
     {
       "poste": "Chef de Produit",
       "prix": 5000000,
+      "debauche": 3400000,
       "nombre": 0,
       "image": "cp.png",
       "bonusClick": 150

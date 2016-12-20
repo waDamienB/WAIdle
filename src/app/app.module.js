@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularToastr from 'angular-toastr';
+import LocalStorageModule from 'angular-local-storage';
 
 import {WaIdleComponent} from './wa-idle/wa-idle.component';
 import {WaCounterComponent} from './wa-counter/wa-counter.component';
@@ -14,15 +15,20 @@ import {PlaceService} from './wa-location/place.service';
 
 import {DecimalPosition} from './wa-idle/decimalPosition.filter';
 
+import {LocalStorageConfig} from './local-storage.config';
+
 angular
     .module("waGame", [
-        angularToastr
+        angularToastr,
+        LocalStorageModule
     ])
 
     .service("EmployeService", EmployeService)
     .service("PlaceService", PlaceService)
 
     .filter("decimalPosition", DecimalPosition)
+
+    .config(LocalStorageConfig)
 
     .component("waIdle", WaIdleComponent)
     .component("waCounter", WaCounterComponent)

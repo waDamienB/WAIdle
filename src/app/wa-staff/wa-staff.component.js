@@ -25,11 +25,24 @@ class WaStaffControler {
     affect($event) {
         this.onAffectation({$event: {prix: $event.prix, bonusClick: $event.bonusClick}});
         $event.nombre++;
-        $event.prix = this._calculerPrix($event.nombre, $event.prix);
+        $event.prix = this._augmenterPrix($event.nombre, $event.prix);
+        $event.debauche = this._augmenterPrix($event.nombre, $event.debauche);
     }
 
-    _calculerPrix(nombre, prix) {
+    debauche($event) {
+        console.log($event);
+        this.onDebaucher({$event: {debauche: $event.debauche, bonusClick: $event.bonusClick}});
+        $event.prix = this._baisserPrix($event.nombre, $event.prix);
+        $event.debauche = this._baisserPrix($event.nombre, $event.debauche);
+        $event.nombre--;
+    }
+
+    _augmenterPrix(nombre, prix) {
         return Math.floor(prix * Math.pow(1.1, nombre));
+    }
+
+    _baisserPrix(nombre, prix) {
+        return Math.ceil(prix / Math.pow(1.1, nombre));
     }
 }
 
@@ -39,7 +52,8 @@ export const WaStaffComponent = {
     bindings: {
         travailleursDisponibles: '<',
         tempsPerdu: '<',
-        onAffectation: '&'
+        onAffectation: '&',
+        onDebaucher: '&'
 
     }
 };

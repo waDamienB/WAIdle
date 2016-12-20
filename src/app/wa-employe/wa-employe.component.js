@@ -3,12 +3,19 @@ import './wa-employe.component.css';
 class WaEmployeControler {
 
     affectable() {
-        console.log(this.travailleursDisponibles);
         return this.tempsPerdu < this.employe.prix || this.travailleursDisponibles === 0;
+    }
+
+    debauchable() {
+        return this.tempsPerdu < this.employe.prix || this.employe.nombre === 0;
     }
 
     affecter() {
         this.onAffectation({$event: this.employe});
+    }
+
+    debaucher() {
+        this.onDebauche({$event: this.employe})
     }
 
 }
@@ -20,6 +27,7 @@ export const WaEmployeComponent = {
         employe: '<',
         tempsPerdu: '<',
         travailleursDisponibles: '<',
-        onAffectation: '&'
+        onAffectation: '&',
+        onDebauche: '&'
     }
 };

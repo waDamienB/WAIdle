@@ -6,6 +6,7 @@ wa-employe {
     border: 1px solid #ddd;
     margin: 0 5px;
 }
+
 wa-employe .employe-pic {
     padding: 10px;
     box-sizing: border-box;
@@ -27,17 +28,32 @@ wa-employe .row {
     display: flex;
     flex-direction: row;
     background-color: whitesmoke;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 wa-employe .row .employe-prix {
-    border-right: 1px solid #ddd;
-    flex: 2;
+    border-bottom: 1px solid #ddd;
+    flex: 1;
     text-align: left;
+}
+
+wa-employe .row .employe-debauche {
+    flex: 1;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #aaa;
 }
 
 wa-employe .row .employe-nombre {
     flex: 1;
-    text-align: right;
+    text-align: center;
+    font-size: 16px;
+    color: #000000;
 }
 
 wa-employe .row div {
@@ -45,6 +61,7 @@ wa-employe .row div {
     font-size: 11px;
     color: #aaa;
 }
+
 wa-employe .row span {
     display: block;
     font-size: 16px;
